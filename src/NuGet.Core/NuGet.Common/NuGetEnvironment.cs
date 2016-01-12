@@ -94,11 +94,17 @@ namespace NuGet.Common
                         {
                             return GetEnvironmentVariable("APPDATA");
                         }
+                        else if (RuntimeEnvironmentHelper.IsLinuxOrUnix)
+                        {
+                            return Path.Combine("etc", "opt");
+                        }
+                        else if (RuntimeEnvironmentHelper.IsOSX)
+                        {
+                            return Path.Combine("Library", "Application Support");
+                        }
                         else
                         {
-                            return FirstNonEmpty(
-                                () => GetEnvironmentVariable("XDG_CONFIG_HOME"),
-                                () => Path.Combine(GetHome(), ".config"));
+                            return null;
                         }
                     case SpecialFolder.LocalApplicationData:
                         if (RuntimeEnvironmentHelper.IsWindows)
