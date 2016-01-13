@@ -284,7 +284,32 @@ namespace NuGet.Commands.Test
 
         private async Task WaitForLockToEngage(SyncdRunResult result)
         {
+            if (result == null)
+            {
+                Console.WriteLine("result is null");
+            }
+            else
+            {
+                Console.WriteLine("result is not null");
+            }
+
+            if (result.Reader == null)
+            {
+                Console.WriteLine("reader is null");
+            }
+            else
+            {
+                Console.WriteLine("reader is not null");
+            }
             var data = await result.Reader.ReadLineAsync();
+            if (data == null) {
+                Console.WriteLine("data is null");
+            }
+            else
+            {
+                Console.WriteLine("data is not null");
+            }
+
 
             if (data.Trim() != "Locked")
             {
