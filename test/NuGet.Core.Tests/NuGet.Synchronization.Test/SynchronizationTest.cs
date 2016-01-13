@@ -271,7 +271,7 @@ namespace NuGet.Commands.Test
                 Directory.GetCurrentDirectory(),
                 $"-p \"{testAppPath}\" run {debugFlag} {fileName} {result.Port} {throwFlag}",
                 waitForExit: false,
-                timeOutInMilliseconds: 100000,
+                timeOutInMilliseconds: (int)TimeSpan.FromMinutes(5).TotalMilliseconds,
                 inputAction: null,
                 shareProcessObject: shareProcessObject);
 
@@ -409,6 +409,7 @@ namespace NuGet.Commands.Test
                 Client = await Listener.AcceptTcpClientAsync();
 
                 var stream = Client.GetStream();
+               
                 Reader = new StreamReader(stream);
                 Writer = new StreamWriter(stream);
             }
