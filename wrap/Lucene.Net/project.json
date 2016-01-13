@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "dnx451": {
+      "bin": {
+        "assembly": "../../src/MergeSearchResults/bin/Debug/Lucene.Net.dll",
+        "pdb": "../../src/MergeSearchResults/bin/Debug/Lucene.Net.pdb"
+      }
+    }
+  }
+}

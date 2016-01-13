@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "dnx451": {
+      "bin": {
+        "assembly": "../../src/MergeSearchResults/bin/Debug/NuGet.Indexing.dll",
+        "pdb": "../../src/MergeSearchResults/bin/Debug/NuGet.Indexing.pdb"
+      },
+      "dependencies": {
+        "Lucene.Net.Contrib.Analyzers": "1.0.0-*",
+        "Lucene.Net": "1.0.0-*",
+        "Lucene.Net.Store.Azure": "1.0.0-*",
+        "Microsoft.Extensions.Logging.Abstractions": "1.0.0-*",
+        "Microsoft.WindowsAzure.Storage": "1.0.0-*",
+        "Newtonsoft.Json": "1.0.0-*",
+        "NuGet.Core": "1.0.0-*",
+        "NuGet.Frameworks": "1.0.0-*",
+        "NuGet.Packaging.Core": "1.0.0-*",
+        "NuGet.Packaging.Core.Types": "1.0.0-*",
+        "NuGet.Packaging": "1.0.0-*",
+        "NuGet.Versioning": "1.0.0-*",
+        "NuGetGallery.Core": "1.0.0-*"
+      }
+    }
+  }
+}

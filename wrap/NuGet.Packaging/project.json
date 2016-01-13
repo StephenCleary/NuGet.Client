@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "dnx451": {
+      "bin": {
+        "assembly": "../../src/MergeSearchResults/bin/Debug/NuGet.Packaging.dll"
+      },
+      "dependencies": {
+        "NuGet.Frameworks": "1.0.0-*",
+        "NuGet.Logging": "1.0.0-*",
+        "NuGet.Packaging.Core": "1.0.0-*",
+        "NuGet.Packaging.Core.Types": "1.0.0-*",
+        "NuGet.Versioning": "1.0.0-*"
+      }
+    }
+  }
+}
