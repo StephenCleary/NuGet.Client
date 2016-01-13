@@ -407,11 +407,16 @@ namespace NuGet.Commands.Test
                 ct.Register(() => Listener.Stop());
 
                 Client = await Listener.AcceptTcpClientAsync();
+                Console.WriteLine("Connected");
+                if (Client == null) Console.WriteLine("client is null");
 
                 var stream = Client.GetStream();
+                
                
                 Reader = new StreamReader(stream);
                 Writer = new StreamWriter(stream);
+
+                Console.WriteLine("stream result: "+Reader.ReadToEndAsync());
             }
 
             public void Dispose()
