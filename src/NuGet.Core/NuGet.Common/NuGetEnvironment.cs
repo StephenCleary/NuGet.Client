@@ -94,13 +94,13 @@ namespace NuGet.Common
                         {
                             return GetEnvironmentVariable("APPDATA");
                         }
-                        else if (RuntimeEnvironmentHelper.IsLinuxOrUnix)
+                        else if (RuntimeEnvironmentHelper.IsLinux)
                         {
                             return Path.Combine("etc", "opt");
                         }
                         else if (RuntimeEnvironmentHelper.IsOSX)
                         {
-                            return Path.Combine("Library", "Application Support");
+                            return Path.Combine("Library", "Application Support","NuGet");
                         }
                         else
                         {

@@ -25,7 +25,7 @@ namespace NuGet.Common
             }
         }
 
-        public static bool IsLinuxOrUnix
+        public static bool IsLinux
         {
             get
             {
