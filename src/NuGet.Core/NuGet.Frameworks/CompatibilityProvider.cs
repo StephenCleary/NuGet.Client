@@ -116,11 +116,13 @@ namespace NuGet.Frameworks
 
         private bool? IsPCLCompatible(NuGetFramework target, NuGetFramework candidate)
         {
-            // TODO: PCLs can only depend on other PCLs?
-            if (target.IsPCL
-                && !candidate.IsPCL)
+            if (target.IsPCL && !candidate.IsPCL)
             {
-                return false;
+                int profile;
+                IEnumerable<FrameworkRange> supportedFrameworkRanges;
+                return _mappings.TryGetPortableProfileNumber(target.Profile, out profile)
+                       && _mappings.TryGetPortableCompatibilityMappings(profile, out supportedFrameworkRanges)
+                       && supportedFrameworkRanges.Any(r => r.Satisfies(candidate));
             }
 
             IEnumerable<NuGetFramework> targetFrameworks = null;
@@ -150,10 +152,10 @@ namespace NuGet.Frameworks
             return PCLInnerCompare(targetFrameworks, candidateFrameworks);
         }
 
-        private bool? PCLInnerCompare(IEnumerable<NuGetFramework> profileFrameworks, IEnumerable<NuGetFramework> otherProfileFrameworks)
+        private bool? PCLInnerCompare(IEnumerable<NuGetFramework> targetFrameworks, IEnumerable<NuGetFramework> candidateFrameworks)
         {
             // TODO: Does this check need to make sure multiple frameworks aren't matched against a single framework from the other list?
-            return profileFrameworks.Count() <= otherProfileFrameworks.Count() && profileFrameworks.All(f => otherProfileFrameworks.Any(ff => IsCompatible(f, ff)));
+            return targetFrameworks.Count() <= candidateFrameworks.Count() && targetFrameworks.All(f => candidateFrameworks.Any(ff => IsCompatible(f, ff)));
         }
 
         private bool? IsCompatibleWithTarget(NuGetFramework target, NuGetFramework candidate)

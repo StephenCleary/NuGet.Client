@@ -366,14 +366,7 @@ namespace NuGet.Test
         [InlineData("dotnet5.3", "dnxcore50", false)]
         [InlineData("dotnet5.4", "dnxcore50", false)]
 
-        // Old-world Portable doesn't support netstandard or dotnet and vice-versa
-        [InlineData("netstandard", "portable-net40+sl5+win8", false)]
-        [InlineData("portable-net40+sl5+win8", "netstandard", false)]
-        [InlineData("portable-net45+win8", "netstandard", false)]
-        [InlineData("portable-net451+win81", "netstandard", false)]
-        [InlineData("portable-net451+win8+core50", "netstandard", false)]
-        [InlineData("portable-net451+win8+dnxcore50", "netstandard", false)]
-        [InlineData("portable-net451+win8+aspnetcore50", "netstandard", false)]
+        // Old-world Portable doesn't support dotnet and vice-versa
         [InlineData("dotnet", "portable-net40+sl5+win8", false)]
         [InlineData("portable-net40+sl5+win8", "dotnet", false)]
         [InlineData("portable-net45+win8", "dotnet", false)]
