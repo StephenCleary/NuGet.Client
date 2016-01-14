@@ -308,6 +308,7 @@ namespace NuGet.Commands.Test
             else
             {
                 Console.WriteLine("data is not null");
+                Console.WriteLine($"date is {data}");
             }
 
 
@@ -415,8 +416,6 @@ namespace NuGet.Commands.Test
                
                 Reader = new StreamReader(stream);
                 Writer = new StreamWriter(stream);
-
-                Console.WriteLine("stream result: "+Reader.ReadToEndAsync());
             }
 
             public void Dispose()
