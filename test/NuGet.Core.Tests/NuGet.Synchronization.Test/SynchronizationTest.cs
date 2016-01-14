@@ -194,6 +194,8 @@ namespace NuGet.Commands.Test
                     debug: false,
                     shareProcessObject: true)))
             {
+                Console.WriteLine("INFO:sync read data is :" + run.Reader.ReadLine());
+
                 await WaitForLockToEngage(run);
 
                 var r1 = run.Result;
@@ -231,7 +233,7 @@ namespace NuGet.Commands.Test
                         shareProcessObject: true,
                         debug: false))
                 {
-                    Console.WriteLine("sync read data is :"+run2.Reader.ReadLine());
+                    
                     await WaitForLockToEngage(run2);
 
                     var r2 = run2.Result;
