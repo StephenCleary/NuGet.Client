@@ -34,6 +34,7 @@ namespace NuGet.PackageManagement
                 await PackageDownloader.GetDownloadResourceResultAsync(v2sourceRepository,
                     packageIdentity,
                     Configuration.NullSettings.Instance,
+                    Logging.NullLogger.Instance,
                     CancellationToken.None);
             }
             catch (Exception ex)
@@ -64,6 +65,7 @@ namespace NuGet.PackageManagement
                 await PackageDownloader.GetDownloadResourceResultAsync(v3sourceRepository,
                     packageIdentity,
                     Configuration.NullSettings.Instance,
+                    Logging.NullLogger.Instance,
                     CancellationToken.None);
             }
             catch (Exception ex)
@@ -87,6 +89,7 @@ namespace NuGet.PackageManagement
             using (var downloadResult = await PackageDownloader.GetDownloadResourceResultAsync(v2sourceRepository,
                 packageIdentity,
                 Configuration.NullSettings.Instance,
+                Logging.NullLogger.Instance,
                 CancellationToken.None))
             {
                 var targetPackageStream = downloadResult.PackageStream;
@@ -110,6 +113,7 @@ namespace NuGet.PackageManagement
             using (var downloadResult = await PackageDownloader.GetDownloadResourceResultAsync(v3sourceRepository,
                 packageIdentity,
                 Configuration.NullSettings.Instance,
+                Logging.NullLogger.Instance,
                 CancellationToken.None))
             {
                 var targetPackageStream = downloadResult.PackageStream;
@@ -138,6 +142,7 @@ namespace NuGet.PackageManagement
             using (var downloadResult = await PackageDownloader.GetDownloadResourceResultAsync(sourceRepositoryProvider.GetRepositories(),
                 packageIdentity,
                 Configuration.NullSettings.Instance,
+                Logging.NullLogger.Instance,
                 CancellationToken.None))
             {
                 var targetPackageStream = downloadResult.PackageStream;
@@ -162,6 +167,7 @@ namespace NuGet.PackageManagement
             await Assert.ThrowsAsync<InvalidOperationException>(async () => await PackageDownloader.GetDownloadResourceResultAsync(sourceRepositoryProvider.GetRepositories(),
                 packageIdentity,
                 Configuration.NullSettings.Instance,
+                Logging.NullLogger.Instance,
                 CancellationToken.None));
         }
 
@@ -184,6 +190,7 @@ namespace NuGet.PackageManagement
             using (var downloadResult = await PackageDownloader.GetDownloadResourceResultAsync(sourceRepositoryProvider.GetRepositories(),
                 packageIdentity,
                 Configuration.NullSettings.Instance,
+                Logging.NullLogger.Instance,
                 CancellationToken.None))
             {
                 var targetPackageStream = downloadResult.PackageStream;
