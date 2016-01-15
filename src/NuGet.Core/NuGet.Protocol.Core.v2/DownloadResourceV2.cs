@@ -161,9 +161,6 @@ namespace NuGet.Protocol.Core.v2
                 var package = dataServiceRepo.FindPackage(identity.Id, version);
                 var dataServicePackage = package as DataServicePackage;
 
-                Debug.Assert(package == null || dataServicePackage != null,
-                    "Package type returned is unpexpected: " + package.GetType().ToString());
-
                 if (dataServicePackage != null)
                 {
                     token.ThrowIfCancellationRequested();
